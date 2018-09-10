@@ -1,10 +1,16 @@
+
+import elementos.*
+import armas.*
+
 object luisa {
-	var personajeActivo = noHayPersonaje
+	var property personajeActivo = null
+	
+	method aparace(elemento) {personajeActivo.encontrar(elemento)}
 }
 
 
 object floki {
-	var arma
+	var property arma = ballesta
 	
 	method encontrar(elemento) {
 	    if (arma.estaCargada()) {
@@ -17,11 +23,15 @@ object floki {
 
 object mario {
 	var valorRecolectado = 0
+	var ultimoElemento = null
 	
 	method encontrar(elemento) {
 	    valorRecolectado += elemento.valorQueOtorga()
 	    elemento.recibirTrabajo()
-	    // ... acá hay que agregar una línea ...
+	    ultimoElemento = elemento
+	}
+	method esFeliz() {
+		return (valorRecolectado >= 50 || ultimoElemento.altura() >= 10)
 	}
 }
 
@@ -29,3 +39,4 @@ object mario {
 object noHayPersonaje {
 	// no hace falta ponerle ningún método, es solamente para marcarle a Luisa que no tiene ningún personaje activo
 }
+
