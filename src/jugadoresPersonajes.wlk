@@ -22,7 +22,7 @@ object floki {
 
 
 object mario {
-	var valorRecolectado = 0
+	var property valorRecolectado = 0
 	var ultimoElemento = null
 	
 	method encontrar(elemento) {

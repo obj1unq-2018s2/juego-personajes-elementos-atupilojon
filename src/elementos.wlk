@@ -3,7 +3,7 @@ import jugadoresPersonajes.*
 
 object castillo {
 	const property altura = 20
-	var defensa = 150
+	var property defensa = 150
 	
 	method recibirAtaque(potencia) { defensa -= potencia }
 	method valorQueOtorga() = defensa/5
@@ -12,14 +12,14 @@ object castillo {
 
 object aurora {
 	const property altura = 1
-	var vive = true
+	var property vive = true
 
 	method recibirAtaque(potencia) {
 		if (potencia >= 10) {
 			vive = false
 		}
 	}
-	method valorQueOtorga() = { return 15 }
+	method valorQueOtorga() = 15
 	method recibirTrabajo() { }	
 }
 

@@ -1,0 +1,42 @@
+import jugadoresPersonajes.*
+import elementos.*
+import armas.*
+
+describe "test luisa" {
+	
+	test "con mario y aparece aurora y un castillo" {
+		luisa.personajeActivo(mario)
+		luisa.aparace(aurora)
+		luisa.aparace(castillo)
+		assert.equals(45, mario.valorRecolectado())
+		assert.equals(true, mario.esFeliz())
+		assert.equals(170, castillo.defensa())
+	}
+	
+	test "con mario y se aparece una tipa, con floki con jabalina y se aparecen aurora y un castillo" {
+		luisa.personajeActivo(mario)
+		luisa.aparace(tipa)
+		floki.arma(jabalina)
+		luisa.personajeActivo(floki)
+		luisa.aparace(aurora)
+		luisa.aparace(castillo)
+		assert.equals(16, mario.valorRecolectado())
+		assert.equals(9, tipa.altura())
+		assert.equals(false, aurora.vive())
+		assert.equals(150, castillo.defensa())
+		assert.equals(false, jabalina.estaCargada())
+	}
+	
+	test "con floki con ballesta y aparece aurora y un castillo" {
+		floki.arma(ballesta)
+		luisa.personajeActivo(floki)
+		luisa.aparace(aurora)
+		luisa.aparace(castillo)
+		assert.equals(0, mario.valorRecolectado())
+		assert.equals(true, aurora.vive())
+		assert.equals(146, castillo.defensa())
+		assert.equals(true, ballesta.estaCargada())
+		assert.equals(8, ballesta.flechas())
+		
+	}
+}
